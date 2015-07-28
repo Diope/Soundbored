@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../Soundbored/Sound.swift">
+   </FileRef>
+   <FileRef
       location = "self:Soundbored.xcodeproj">
    </FileRef>
 </Workspace>

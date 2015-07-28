@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="REN-Oc-YXq">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Soundbored-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="SoundListViewController" customModule="Soundbored" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -15,11 +16,127 @@
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="Gli-fV-3di">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="Gli-fV-3di" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="11f-Mf-eHp"/>
+                            <constraint firstItem="Gli-fV-3di" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="i6D-v3-yda"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Gli-fV-3di" secondAttribute="bottom" id="iet-Jy-FGg"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="Gli-fV-3di" secondAttribute="trailing" id="lEb-az-c9o"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Soundbored" id="ZSF-0r-fmZ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="QMC-Ti-3no">
+                            <connections>
+                                <segue destination="zXW-nm-Nv7" kind="presentation" id="CPZ-bm-rrR"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="Gli-fV-3di" id="2o3-gk-b6N"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="431" y="630"/>
+        </scene>
+        <!--New Sound View Controller-->
+        <scene sceneID="Yno-9Y-94T">
+            <objects>
+                <viewController id="zXW-nm-Nv7" customClass="NewSoundViewController" customModule="Soundbored" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="nh8-Fo-R36"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wvf-KM-Kq4"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="bCN-AZ-3zZ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l78-h7-SDW">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="JRR-AC-udR"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="New Sound" id="Q5k-SL-Dfm">
+                                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="Um8-vf-dDg">
+                                            <connections>
+                                                <action selector="cancelTapped:" destination="zXW-nm-Nv7" id="7ov-wB-fOX"/>
+                                            </connections>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="Qkj-nL-1Mb">
+                                            <connections>
+                                                <action selector="saveTapped:" destination="zXW-nm-Nv7" id="WSs-Wc-8hW"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Sound Name Here" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DTg-ge-vlp">
+                                <rect key="frame" x="36" y="64" width="528" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="HkQ-W0-e6f"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R19-4Z-hGx">
+                                <rect key="frame" x="36" y="124" width="528" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="mEZ-hZ-21v"/>
+                                </constraints>
+                                <state key="normal" title="RECORD">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="recordTapped:" destination="zXW-nm-Nv7" eventType="touchUpInside" id="RoI-Fm-bVf"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="l78-h7-SDW" secondAttribute="trailing" id="7Hr-cW-Qks"/>
+                            <constraint firstItem="R19-4Z-hGx" firstAttribute="leading" secondItem="bCN-AZ-3zZ" secondAttribute="leadingMargin" constant="20" id="PfT-gK-2Ch"/>
+                            <constraint firstItem="DTg-ge-vlp" firstAttribute="leading" secondItem="bCN-AZ-3zZ" secondAttribute="leadingMargin" constant="20" id="VrM-zt-vGt"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="DTg-ge-vlp" secondAttribute="trailing" constant="20" id="gx0-Ge-R2a"/>
+                            <constraint firstItem="R19-4Z-hGx" firstAttribute="top" secondItem="DTg-ge-vlp" secondAttribute="bottom" constant="30" id="kqc-Mm-XL1"/>
+                            <constraint firstItem="DTg-ge-vlp" firstAttribute="top" secondItem="l78-h7-SDW" secondAttribute="bottom" constant="20" id="mlR-mp-bKk"/>
+                            <constraint firstItem="l78-h7-SDW" firstAttribute="top" secondItem="bCN-AZ-3zZ" secondAttribute="top" id="mpp-FI-3Zu"/>
+                            <constraint firstItem="l78-h7-SDW" firstAttribute="leading" secondItem="bCN-AZ-3zZ" secondAttribute="leading" id="oP4-fM-A0J"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="R19-4Z-hGx" secondAttribute="trailing" constant="20" id="qe2-Xr-MCg"/>
+                        </constraints>
+                    </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="recordButton" destination="R19-4Z-hGx" id="TpV-JH-QZC"/>
+                        <outlet property="soundTextField" destination="DTg-ge-vlp" id="CSY-Al-BPu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3gD-jc-8by" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1131" y="630"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Qjz-xz-5hD">
+            <objects>
+                <navigationController id="REN-Oc-YXq" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="mqd-bs-aux">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="9Ha-mb-hmn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iY1-cQ-51F" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-268" y="630"/>
         </scene>
     </scenes>
 </document>
